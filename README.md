@@ -1,2 +1,2 @@
 # guppychess
-small scall chess engine in C++
+Small scale chess engine in C++
