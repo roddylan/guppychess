@@ -18,7 +18,7 @@ public:
     pBitboard(); // constructor
     void setup(std::string FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
 
-private:
+protected:
     // const int size = 64;
     // static std::bitset<64> wPawnBoard;
     // static std::bitset<64> bPawnBoard;
