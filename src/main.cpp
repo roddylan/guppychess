@@ -10,7 +10,7 @@ knight = 3
 bishop = 3
 pawn = 1
 */
-
+// PGN: if same type of pieces go to shared square, differentiate by either file or rank
 
 int main() {
     // int board[8][8] = {
