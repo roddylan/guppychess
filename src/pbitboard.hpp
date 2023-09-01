@@ -11,6 +11,10 @@ typedef std::uint64_t U64;
 #define _U64
 #endif
 
+constexpr U64 UNIVERSE = 0xffffffffffffffffULL;
+constexpr U64 ONE = 1ULL;
+constexpr U64 ZERO = 0ULL;
+
 // piece bitboard
 // FEN coding:
 // black = lower
@@ -92,7 +96,7 @@ private:
     };
 
     int m_activeColor = 0;
-    U64 m_board = 0xFFFF0000FFFF;
+    U64 m_board[2] = {ZERO, ZERO}; // TODO: IMPLEMENT FILL
     // 0 = white, 1 = black
 };
 
