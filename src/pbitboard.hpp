@@ -1,57 +1,50 @@
-// bitboard.h
+// pbitboard.hpp
+// for pieces
+#ifndef PBITBOARD_HPP_
+#define PBITBOARD_HPP_
 #include <bitset>
 #include <map>
+#include "constants.hpp"
 #ifndef _U64
 #include <cstdint>
 typedef std::uint64_t U64;
 #define _U64
 #endif
-// position bitboard
+
+// piece bitboard
 // FEN coding:
 // black = lower
 // white = upper
 // top to bottom (far left to far right)
 // left shift
+
 class pBitboard
 {
 public:
     pBitboard(); // constructor
     void setup(std::string FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
 
-protected:
-    // const int size = 64;
-    // static std::bitset<64> wPawnBoard;
-    // static std::bitset<64> bPawnBoard;
-    // static std::bitset<64> wKingBoard;
-    // static std::bitset<64> bKingBoard;
-    // static std::bitset<64> wQueenBoard;
-    // static std::bitset<64> bQueenBoard;
-    // static std::bitset<64> wBishopBoard;
-    // static std::bitset<64> bBishopBoard;
-    // static std::bitset<64> wKnightBoard;
-    // static std::bitset<64> bKnightBoard;
-    // static std::bitset<64> wRookBoard;
-    // static std::bitset<64> bRookBoard;
-    
-    // static std::map<char, std::bitset<64>> pieces;
 
-    // TODO: convert to U64
-    std::bitset<64> wPawnBoard;
-    std::bitset<64> bPawnBoard;
-    std::bitset<64> wKingBoard;
-    std::bitset<64> bKingBoard;
-    std::bitset<64> wQueenBoard;
-    std::bitset<64> bQueenBoard;
-    std::bitset<64> wBishopBoard;
-    std::bitset<64> bBishopBoard;
-    std::bitset<64> wKnightBoard;
-    std::bitset<64> bKnightBoard;
-    std::bitset<64> wRookBoard;
-    std::bitset<64> bRookBoard;
+private:
+    
+    
+    /*
+    U64 wPawnBoard;
+    U64 bPawnBoard;
+    U64 wKingBoard;
+    U64 bKingBoard;
+    U64 wQueenBoard;
+    U64 bQueenBoard;
+    U64 wBishopBoard;
+    U64 bBishopBoard;
+    U64 wKnightBoard;
+    U64 bKnightBoard;
+    U64 wRookBoard;
+    U64 bRookBoard;
     // FEN coding:
     // white = upper
     // black = lower
-    std::map<char, std::bitset<64> *> pieces = {
+    std::map<char, U64 *> pieces = {
         {'P', &wPawnBoard},
         {'p', &bPawnBoard},
         {'K', &wKingBoard},
@@ -63,8 +56,26 @@ protected:
         {'R', &wRookBoard},
         {'r', &bRookBoard},
     };
+    */
     
-    const std::map<char, int> values = {
+    // squareIndex = 8*rankIndex + fileIndex
+    U64 m_pieces[(int) COLOR::TOTAL][(int) PIECES::TOTAL];
+    std::map<char, U64 *> m_pieceMap = {
+        {'K', &m_pieces[(int) COLOR::W][(int) PIECES::KING]}, 
+        {'k', &m_pieces[(int) COLOR::B][(int) PIECES::KING]},  
+        {'Q', &m_pieces[(int) COLOR::W][(int) PIECES::QUEEN]}, 
+        {'q', &m_pieces[(int) COLOR::B][(int) PIECES::QUEEN]}, 
+        {'N', &m_pieces[(int) COLOR::W][(int) PIECES::KNIGHT]}, 
+        {'n', &m_pieces[(int) COLOR::B][(int) PIECES::KNIGHT]}, 
+        {'B', &m_pieces[(int) COLOR::W][(int) PIECES::BISHOP]}, 
+        {'b', &m_pieces[(int) COLOR::B][(int) PIECES::BISHOP]}, 
+        {'R', &m_pieces[(int) COLOR::W][(int) PIECES::ROOK]}, 
+        {'r', &m_pieces[(int) COLOR::B][(int) PIECES::ROOK]}, 
+        {'P', &m_pieces[(int) COLOR::W][(int) PIECES::PAWN]}, 
+        {'p', &m_pieces[(int) COLOR::B][(int) PIECES::PAWN]}
+    };
+    
+    const std::map<char, int> m_values = {
         {'K', 100},
         {'k', -100},
         {'Q', 10},
@@ -80,7 +91,8 @@ protected:
         
     };
 
-    int activeColor = 0;
+    int m_activeColor = 0;
+    U64 m_board = 0xFFFF0000FFFF;
     // 0 = white, 1 = black
 };
 
@@ -107,3 +119,5 @@ far left->  0000 0000
             0000 0000
             0000 0000 <- far right
 */
+
+#endif
