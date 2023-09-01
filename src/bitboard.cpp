@@ -52,7 +52,7 @@ void pBitboard::setup(std::string FEN) {
             }
             if (field == 1) {
                 // active color
-                activeColor = FEN[i] % 2;
+                activeColor = ((int) FEN[i]) % 2;
             }
             else if (field == 2) {
                 // casting rights
