@@ -4,4 +4,4 @@ Small scale UCI Compatible chess engine in C++ that uses bitboard representation
 Little Endian representation.
 
 Techniques used:
-- s
+- 
