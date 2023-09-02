@@ -30,6 +30,7 @@ namespace bitboard {
     inline U64 shiftDDownRightOne(U64 bb) { return ((bb >> (std::abs((int) DIRECTION::D_DOWN_RIGHT)))) & (U64) masks::CLEAR_FILE[0]; }
 
 
+    int bCount(U64 bb);
 }
 
 
