@@ -31,6 +31,9 @@ namespace bitboard {
 
 
     int bCount(U64 bb);
+    
+    int bScanF(U64 bb);
+    int bScanR(U64 bb);
 }
 
 
