@@ -2,7 +2,7 @@
 Small scale UCI Compatible chess engine in C++ that uses bitboard representation and minimax.
 FEN (INCOMPLETE) and PGN (TODO) formats supported.
 
-Little Endian representation.
+Little Endian file and rank mapping.
 
 Techniques used:
 - 
