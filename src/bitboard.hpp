@@ -29,11 +29,23 @@ namespace bitboard {
     inline U64 shiftDDownLeftOne(U64 bb) { return ((bb >> (std::abs((int) DIRECTION::D_DOWN_LEFT)))) & (U64) masks::CLEAR_FILE[7]; }
     inline U64 shiftDDownRightOne(U64 bb) { return ((bb >> (std::abs((int) DIRECTION::D_DOWN_RIGHT)))) & (U64) masks::CLEAR_FILE[0]; }
 
-
+    // bit count
     int bCount(U64 bb);
     
+    // bit scan
     int bScanF(U64 bb);
     int bScanR(U64 bb);
+
+    // bit twiddling
+    // flip
+    U64 bFlipVertical(U64 bb);
+    U64 bFlipHorizontal(U64 bb);
+    U64 bFlipDiagonalA1H8(U64 bb); // diag
+    U64 bFlipDiagonalH1A8(U64 bb); // antidiag
+
+    // rotate
+    U64 bReversal(U64 bb); // 180 deg
+    
 }
 
 
