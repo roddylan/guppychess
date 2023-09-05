@@ -25,6 +25,11 @@ constexpr U64 ZERO = 0ULL;
 class pBitboard
 {
 public:
+    struct Piece {
+        PIECES pType;
+        COLOR pColor;
+    };
+    
     pBitboard(); // constructor
     void setup(std::string FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
 

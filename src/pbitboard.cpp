@@ -65,6 +65,7 @@ void pBitboard::setup(std::string FEN) {
             else {
                 int squareIdx = 8*rankIdx + fileIdx;
                 *m_pieceMap[FEN[i]] |= (firstPiece << squareIdx).to_ullong();
+                
                 fileIdx += 1;
                 // currentPiece <<= 1;
                 i++;
